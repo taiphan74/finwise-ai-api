@@ -3,6 +3,22 @@ import { env } from './env';
 
 @Injectable()
 export class EnvService {
+  get nodeEnv(): 'development' | 'test' | 'production' {
+    return env.NODE_ENV;
+  }
+
+  get isProduction(): boolean {
+    return this.nodeEnv === 'production';
+  }
+
+  get isDevelopment(): boolean {
+    return this.nodeEnv === 'development';
+  }
+
+  get isTest(): boolean {
+    return this.nodeEnv === 'test';
+  }
+
   get port(): number {
     return env.PORT;
   }
